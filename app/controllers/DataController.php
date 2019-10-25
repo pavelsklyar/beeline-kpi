@@ -5,7 +5,15 @@ class DataController
 {
     public function get()
     {
+        $data = [
+            'LOGIN' => "ozpavel@yandex.ru",
+            'PASSWORD' => 'aADip1s'
+        ];
+
         $ch = curl_init('https://mixtech.dev/neiro-bit/beeline/?LOGIN=ozpavel@yandex.ru&PASSWORD=aADip1s');
+//        $ch = curl_init('https://mixtech.dev/neiro-bit/beeline/');  // для POST запроса
+//        curl_setopt($ch, CURLOPT_POST, true); //переключаем запрос в POST
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data); //Это POST данные
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,TRUE);
         $dataObject = curl_exec($ch);
         curl_close($ch);
